@@ -10,9 +10,12 @@
 Откройте в VS Code скачанную папку с этим README. Для запуска нужен Python 3.12 или новее. В новом терминале выполните команды.
 
 ```bat
+py -m venv venv
+venv\Scripts\activate
+pip install django pillow
 cd Django
-python -m pip install Django Pillow
-python manage.py runserver
+py manage.py migrate
+py manage.py runserver
 ```
 
 В базе уже есть три автора, четыре книги и демонстрационный администратор. После запуска откройте [каталог](http://127.0.0.1:8000/) или [админку](http://127.0.0.1:8000/admin/).
