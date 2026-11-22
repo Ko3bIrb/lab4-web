@@ -1,0 +1,15 @@
+SQL> PRAGMA table_info('library_author');
+cid  name        type          notnull  dflt_value  pk
+0    id          INTEGER       1        NULL        1
+1    first_name  varchar(80)   1        NULL        0
+2    last_name   varchar(80)   1        NULL        0
+3    biography   TEXT          1        NULL        0
+4    photo       varchar(100)  1        NULL        0
+
+SQL> PRAGMA table_info('library_book');
+cid  name              type               notnull  dflt_value  pk
+0    id                INTEGER            1        NULL        1
+1    title             varchar(200)       1        NULL        0
+2    publication_year  smallint unsigned  1        NULL        0
+3    isbn              varchar(13)        1        NULL        0
+4    author_id         bigint             1        NULL        0

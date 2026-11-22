@@ -1,0 +1,42 @@
+{% load l10n static %}
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="{% static 'library/catalog.css' %}">
+</head>
+<body>
+    <main>
+        <header>
+            <h1>{{ title }}</h1>
+            <a href="{% url 'admin:index' %}">Админ-панель</a>
+        </header>
+        <div class="table-wrap">
+            <table aria-label="Книги библиотеки">
+                <thead>
+                    <tr>
+                        <th scope="col">Название</th>
+                        <th scope="col">Автор</th>
+                        <th scope="col">Год издания</th>
+                        <th scope="col">ISBN</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for book in books %}
+                    <tr>
+                        <th scope="row">{{ book.title }}</th>
+                        <td>{{ book.author }}</td>
+                        <td>{{ book.publication_year|unlocalize }}</td>
+                        <td>{{ book.isbn }}</td>
+                    </tr>
+                    {% empty %}
+                    <tr><td colspan="4">В каталоге пока нет книг.</td></tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </main>
+</body>
+</html>
